@@ -53,7 +53,7 @@ export default function Home() {
           <CardFooter>
             Child abuse
           </CardFooter>
-          <p className="p-4">Incase you stumble across of child abuse, please report it to the NCMEC CyberTipline.</p>
+          <p className="p-4">If you come across child abuse, please report it to the NCMEC CyberTipline.</p>
           <Button className="mx-4 mb-4 whitespace-normal py-6" variant="default" onClick={() => window.location.href = "https://report.cybertip.org/"}>
             Report child abuse to the NCMEC CyberTipline
             <ArrowRight data-icon="inline-end" />
