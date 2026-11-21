@@ -1,69 +1,140 @@
-import Image from "next/image";
+"use client";
+
+import { Separator } from "@/components/ui/separator"
+import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert"
+import { Card, CardContent, CardFooter, CardHeader, CardTitle, CardDescription, CardAction } from "@/components/ui/card"
+import { Button } from "@/components/ui/button"
+import { AlertCircleIcon, ArrowRight } from "lucide-react"
+import { createAuthClient } from "better-auth/client";
+import { authClient } from "@/lib/auth-client";
 
 export default function Home() {
-  return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert h-5 w-[100px]"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the{" "}
-            <code className="rounded bg-black/[.06] px-1.5 py-0.5 font-mono text-[0.9em] dark:bg-white/[.08]">
-              page.tsx
-            </code>{" "}
-            file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert h-[14px] w-4"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={14}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
+
+    const signIn = async () => {
+      const data = await authClient.signIn.social({
+        provider: "discord",
+      });
+    };
+
+    const { data: session, isPending } = authClient.useSession();
+
+    return (
+    <div className="flex flex-col flex-1 items-center justify-center bg-background text-foreground">
+      <img src="Take that down Logo.png" alt="Take that down!" className="max-w-lg max-h-64"></img>
+      <p className="mt-4 text-lg text-center text-zinc-500">
+        ...i want that off the internet, please.
+      </p>
+      <Separator className="max-w-md my-4" />
+      <p className="mt-4 text-lg text-center">
+        <img src="Take that down Logo.png" alt="Take that down!" className="inline-block w-[120px] h-aut"></img> Is a simple tool to help YOU find out on how to report things, and hopefully get them removed from the internet.
+        <br />
+        You will find out on how to report something on different platforms, and on how to use the DSA / OSA (Europe / UK only) tools to report illegal content.
+        <br />
+        The goal of this place is to spread awareness and to educate people to report harmful content. The internet can be a shaky place, and everyone should know how to contribute to its safety.
+      </p>
+      <Separator className="max-w-md my-4" />
+      <Alert variant="destructive" className="w-full max-w-md">
+        <AlertCircleIcon />
+        <AlertTitle>Disclaimer</AlertTitle>
+        <AlertDescription>
+          This is NOT a place for information on how to get help in situations where immediate danger is present! Incase you think someone is seriously in danger, call your local law enforcement instead!
+        </AlertDescription>
+      </Alert>
+      <Separator className="max-w-md my-4" />
+      <div className="grid grid-cols-3 gap-4 items-center justify-center">
+        <Card className="w-full max-w-md">
+          <CardContent>
+            <Card className="bg-[#F1F2F2]">
+              <CardContent>
+                <img className="w-full" src="/company-logos/NCMEC.png" alt="NCMEC"></img>
+              </CardContent>
+            </Card>
+          </CardContent>
+          <CardFooter>
+            Child abuse
+          </CardFooter>
+          <p className="p-4">Incase you stumble across of child abuse, please report it to the NCMEC CyberTipline.</p>
+          <Button className="mb-4 mx-4 " variant="default" onClick={() => window.location.href = "https://report.cybertip.org/"}>
+            Report child abuse to the NCMEC CyberTipline
+            <ArrowRight data-icon="inline-end" />
+          </Button>
+        </Card>
+        <Card className="w-full max-w-md">
+          <CardContent>
+            <Card className="bg-foreground">
+              <CardContent>
+                <img className="w-full" src="/company-logos/Cloudflare.png" alt="Roblox"></img>
+              </CardContent>
+            </Card>
+          </CardContent>
+          <CardFooter>
+            Cloudflare
+          </CardFooter>
+          <Button className="mb-4 mx-4 " variant="default" onClick={() => window.location.href = "/cloudflare"}>
+            How to report content on Cloudflare
+            <ArrowRight data-icon="inline-end" />
+          </Button>
+        </Card>
+        <Card className="w-full max-w-md">
+          <CardContent>
+            <Card className="bg-[#3b67fe]">
+              <CardContent>
+                <img className="w-full" src="/company-logos/Roblox.png" alt="Roblox"></img>
+              </CardContent>
+            </Card>
+          </CardContent>
+          <CardFooter>
+            Roblox
+          </CardFooter>
+          <Button className="mb-4 mx-4" variant="default" onClick={() => window.location.href = "/roblox"}>
+            How to report content on Roblox
+            <ArrowRight data-icon="inline-end" />
+          </Button>
+        </Card>
+        <Card className="w-full max-w-md">
+          <CardContent>
+            <Card className="bg-[#5865f2]">
+              <CardContent>
+                <img className="w-full" src="/company-logos/Discord.png" alt="Discord"></img>
+              </CardContent>
+            </Card>
+          </CardContent>
+          <CardFooter>
+            Discord
+          </CardFooter>
+          <Button className="mb-4 mx-4" variant="default" onClick={() => window.location.href = "/discord"}>
+            How to report content on Discord
+            <ArrowRight data-icon="inline-end" />
+          </Button>
+        </Card>
+      </div>
+        <Separator className="max-w-md my-4" />
+        <p className="mb-4 text-center">Submitting suggestions is work-in-progress and will come eventually. In the meanwhile, <a href="https://example.com" className="underline">check out the code.</a></p>
+          {/*
+          <Separator className="max-w-md my-4" />
+          <Card className="w-full max-w-md mb-4">
+            <CardHeader >
+              <CardTitle>
+                Do you have any suggestions?
+              </CardTitle>
+              <CardDescription>
+                If you do, sign in with Discord and send your suggestion.
+              </CardDescription>
+              <CardContent>
+                {isPending ? <p className="mt-4 text-center">Checking to see if you're logged in...</p> : (
+                  session ? (
+                    <p className="mt-4 text-center">Logged in!</p>
+                  ) : (
+                    <Button onClick={signIn} className="mt-4 w-full bg-[#5865f2] text-[#e0e3ff] hover:bg-[#4752C4]">
+                      <img src="Discord-Symbol-Light Blurple.svg" className="max-h-3" />
+                      Sign in with Discord
+                    </Button>
+                  )
+                )}
+              </CardContent>
+            </CardHeader>
+          </Card>
+          */}
     </div>
   );
 }
