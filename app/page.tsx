@@ -41,7 +41,7 @@ export default function Home() {
         </AlertDescription>
       </Alert>
       <Separator className="max-w-md my-4" />
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 w-full max-w-6xl px-4">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 w-full max-w-6xl px-4 items-start">
         <Card className="w-full max-w-md">
           <CardContent>
             <Card className="bg-[#F1F2F2]">
@@ -54,7 +54,7 @@ export default function Home() {
             Child abuse
           </CardFooter>
           <p className="p-4">Incase you stumble across of child abuse, please report it to the NCMEC CyberTipline.</p>
-          <Button className="mb-4 mx-4 sm:px-0" variant="default" onClick={() => window.location.href = "https://report.cybertip.org/"}>
+          <Button className="mx-4 mb-4 whitespace-normal py-6" variant="default" onClick={() => window.location.href = "https://report.cybertip.org/"}>
             Report child abuse to the NCMEC CyberTipline
             <ArrowRight data-icon="inline-end" />
           </Button>
