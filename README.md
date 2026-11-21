@@ -1,4 +1,4 @@
-![Take that down!](/Take%20that%20down%20Logo.png "Take that down!")
+![Take that down!](/public/Take%20that%20down%20Logo.png "Take that down!")
 
 ---
 
