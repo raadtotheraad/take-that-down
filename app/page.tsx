@@ -109,7 +109,7 @@ export default function Home() {
         </Card>
       </div>
         <Separator className="max-w-md my-4" />
-        <p className="mb-4 text-center">Submitting suggestions is work-in-progress and will come eventually. In the meanwhile, <a href="https://example.com" className="underline">check out the code.</a></p>
+        <p className="mb-4 text-center">Submitting suggestions is work-in-progress and will come eventually. In the meanwhile, <a href="https://github.com/raadtotheraad/take-that-down" className="underline">check out the code.</a></p>
           {/*
           <Separator className="max-w-md my-4" />
           <Card className="w-full max-w-md mb-4">
