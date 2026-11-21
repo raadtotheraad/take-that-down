@@ -9,7 +9,7 @@ import { Button } from "@/components/ui/button"
 
 export default function Discord() {
     return (
-        <div className="flex flex-col flex-1 items-center justify-center bg-background text-foreground ">
+        <div className="flex flex-col flex-1 items-center justify-center bg-background text-foreground px-4 sm:px-0">
             <Button className="mt-4" onClick={() => { window.location.href = "/" }} variant="link">
                 <ChevronLeft data-icon="inline-start" />
                 Go Back

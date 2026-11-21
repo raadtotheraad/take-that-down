@@ -19,8 +19,8 @@ export default function Home() {
     const { data: session, isPending } = authClient.useSession();
 
     return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-background text-foreground">
-      <img src="Take that down Logo.png" alt="Take that down!" className="max-w-lg max-h-64"></img>
+    <div className="flex flex-col flex-1 items-center justify-center bg-background text-foreground px-4 sm:px-0">
+      <img src="Take that down Logo.png" alt="Take that down!" className="max-w-lg max-h-64 px-24 sm:px-0"></img>
       <p className="mt-4 text-lg text-center text-zinc-500">
         ...i want that off the internet, please.
       </p>
@@ -41,7 +41,7 @@ export default function Home() {
         </AlertDescription>
       </Alert>
       <Separator className="max-w-md my-4" />
-      <div className="grid grid-cols-3 gap-4 items-center justify-center">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 w-full max-w-6xl px-4">
         <Card className="w-full max-w-md">
           <CardContent>
             <Card className="bg-[#F1F2F2]">
@@ -54,7 +54,7 @@ export default function Home() {
             Child abuse
           </CardFooter>
           <p className="p-4">Incase you stumble across of child abuse, please report it to the NCMEC CyberTipline.</p>
-          <Button className="mb-4 mx-4 " variant="default" onClick={() => window.location.href = "https://report.cybertip.org/"}>
+          <Button className="mb-4 mx-4 sm:px-0" variant="default" onClick={() => window.location.href = "https://report.cybertip.org/"}>
             Report child abuse to the NCMEC CyberTipline
             <ArrowRight data-icon="inline-end" />
           </Button>
